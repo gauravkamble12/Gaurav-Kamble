@@ -93,6 +93,9 @@ export default function About() {
                         <span className="text-sky-300">"degree"</span>: <span className="text-emerald-300">"{terminalCommands['profile.json'].degree}"</span>,
                       </p>
                       <p className="pl-4">
+                        <span className="text-sky-300">"currentCGPA"</span>: <span className="text-cyan-300">"{terminalCommands['profile.json'].currentCGPA}"</span>,
+                      </p>
+                      <p className="pl-4">
                         <span className="text-sky-300">"domains"</span>: [<br />
                         {terminalCommands['profile.json'].domains.map((d, idx) => (
                           <span key={idx} className="block pl-4 text-emerald-300">
@@ -108,6 +111,18 @@ export default function About() {
                         <span className="text-sky-300">"openToWork"</span>: <span className="text-amber-300">true</span>
                       </p>
                       <p>&#125;</p>
+                    </div>
+                  )}
+
+                  {activeTab === 'education.json' && (
+                    <div className="text-slate-400 pl-2 space-y-2 text-xs">
+                      {terminalCommands['education.json'].map((edu, idx) => (
+                        <div key={idx} className="p-2 rounded bg-slate-900/60 border border-slate-800/80">
+                          <p className="text-cyan-300 font-bold">{edu.course || edu.standard} <span className="text-emerald-400 text-[11px] font-mono ml-2">({edu.score})</span></p>
+                          <p className="text-slate-400 text-[11px]">{edu.college || edu.school}</p>
+                          <p className="text-slate-500 text-[10px]">{edu.period || edu.board}</p>
+                        </div>
+                      ))}
                     </div>
                   )}
 

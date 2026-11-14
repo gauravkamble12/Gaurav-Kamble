@@ -26,15 +26,59 @@ export const personalInfo = {
   ],
   stats: [
     { label: "Full-Stack & Data Stack", value: "MERN + Py", isText: true },
-    { label: "Academic CGPA", value: 8.5, decimals: 1, suffix: "+" },
+    { label: "Academic CGPA", value: 8.94, decimals: 2, suffix: "/10" },
     { label: "Verified Credentials & Paper", value: 10, suffix: "+" }
   ]
 };
 
+export const education = [
+  {
+    id: "be",
+    degree: "B.E. in Computer Engineering",
+    institution: "Dr. D. Y. Patil College of Engineering and Innovation, Varale, Talegaon (Pune)",
+    period: "2023 – Present",
+    score: "8.94 CGPA",
+    scoreType: "Current CGPA",
+    badge: "Undergraduate Degree",
+    status: "Currently Pursuing",
+    icon: "fa-solid fa-graduation-cap",
+    color: "cyan",
+    details: "Focusing on Full-Stack Software Engineering (MERN), Data Analytics, Machine Learning algorithms, and Systems Architecture."
+  },
+  {
+    id: "hsc",
+    degree: "Higher Secondary Certificate (12th HSC)",
+    institution: "Shree Chhatrapati Shivaji College, Omerga",
+    period: "2022 – 2023",
+    score: "71.00%",
+    scoreType: "Percentage",
+    badge: "Maharashtra State Board (HSC)",
+    status: "Completed",
+    icon: "fa-solid fa-building-columns",
+    color: "purple",
+    details: "Higher secondary education in Science stream under Maharashtra State Board."
+  },
+  {
+    id: "ssc",
+    degree: "Secondary School Certificate (10th SSC)",
+    institution: "Shree Dnyaneshwar Vidyalay, Turori",
+    period: "2020 – 2021",
+    score: "89.40%",
+    scoreType: "Percentage (Distinction)",
+    badge: "Maharashtra State Board (SSC)",
+    status: "Completed",
+    icon: "fa-solid fa-school",
+    color: "emerald",
+    details: "Secondary education under Maharashtra State Board, completed with Distinction honors."
+  }
+];
+
 export const terminalCommands = {
   "profile.json": {
     name: "Gaurav Kamble",
+    college: "Dr. D. Y. Patil College of Engineering & Innovation, Talegaon, Pune",
     degree: "B.E. Computer Engineering",
+    currentCGPA: "8.94 / 10",
     domains: [
       "Full-Stack MERN",
       "Data Analytics & BI",
@@ -46,6 +90,26 @@ export const terminalCommands = {
     location: "Pune, Maharashtra",
     openToWork: true
   },
+  "education.json": [
+    {
+      course: "B.E. Computer Engineering",
+      college: "Dr. D. Y. Patil College of Engineering & Innovation, Talegaon, Pune",
+      score: "8.94 CGPA",
+      period: "2023 - Present"
+    },
+    {
+      course: "12th HSC (Science)",
+      college: "Shree Chhatrapati Shivaji College, Omerga",
+      score: "71.00%",
+      board: "Maharashtra State Board (2022 - 2023)"
+    },
+    {
+      course: "10th SSC",
+      school: "Shree Dnyaneshwar Vidyalay, Turori",
+      score: "89.40%",
+      board: "Maharashtra State Board (2020 - 2021)"
+    }
+  ],
   "skills.sh": [
     "Frontend: React.js, Tailwind CSS, JavaScript (ES6+), HTML5/CSS3",
     "Backend: Node.js, Express.js, RESTful APIs, JWT Auth, Socket.IO",

@@ -16,8 +16,9 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
           <a href="#about" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">About</a>
+          <a href="#education" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">Education</a>
           <a href="#skills" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">Skills</a>
           <a href="#projects" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">Projects</a>
           <a href="#experience" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">Experience</a>
@@ -50,6 +51,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden glass-panel border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-center animate-fadeIn">
           <a href="#about" onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400 py-2">About</a>
+          <a href="#education" onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400 py-2">Education</a>
           <a href="#skills" onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400 py-2">Skills</a>
           <a href="#projects" onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400 py-2">Projects</a>
           <a href="#experience" onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400 py-2">Experience</a>

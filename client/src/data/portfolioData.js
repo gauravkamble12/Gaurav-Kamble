@@ -11,7 +11,7 @@ export const personalInfo = {
   location: "Pune, Maharashtra, India",
   degree: "B.E. Computer Engineering",
   github: "https://github.com/gauravkamble12",
-  linkedin: "https://linkedin.com/in/gaurav-kamble",
+  linkedin: "https://www.linkedin.com/in/gaurav-kamble-7a84361b1/",
   heroPhrases: [
     "Full-Stack MERN Developer.",
     "Data Analyst & BI Specialist.",

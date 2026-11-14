@@ -16,104 +16,180 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-10 pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen text-center"
+      className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex items-center min-h-[92vh]"
     >
-      {/* Avatar with Glowing Gradient Ring */}
-      <div className="relative mb-6 group">
-        <div className="absolute -inset-1.5 bg-gradient-to-r from-cyan-400 via-sky-500 to-purple-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-        <img
-          src={avatarImg}
-          alt={personalInfo.name}
-          className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-2 border-cyan-400/80 shadow-2xl transition-transform duration-300 group-hover:scale-105"
-        />
-        <div
-          className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-400 border-2 border-slate-950 shadow-md animate-pulse"
-          title="Online & Ready for Opportunities"
-        ></div>
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+        {/* Left Column: Introduction & CTAs (7 cols) */}
+        <div className="lg:col-span-7 text-center lg:text-left">
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-cyan-500/30 text-cyan-300 text-xs font-mono mb-6 animate-pulse">
+            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+            {personalInfo.badge}
+          </div>
 
-      {/* Status Badge */}
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-cyan-500/30 text-cyan-300 text-xs font-mono mb-8 animate-pulse">
-        <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-        {personalInfo.badge}
-      </div>
+          {/* Main Title & Animated Typing */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+            Hi, I'm <span className="text-gradient">{personalInfo.name}</span>
+            <div className="h-14 mt-2 text-xl sm:text-3xl lg:text-4xl font-mono font-semibold text-slate-300">
+              <span className="typing-cursor">
+                <TypedText phrases={personalInfo.heroPhrases} />
+              </span>
+            </div>
+          </h1>
 
-      {/* Main Title & Animated Typing */}
-      <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6">
-        Hi, I'm <span className="text-gradient">{personalInfo.name}</span>
-        <div className="h-16 mt-2 text-2xl sm:text-4xl md:text-5xl font-mono font-semibold text-slate-300">
-          <span className="typing-cursor">
-            <TypedText phrases={personalInfo.heroPhrases} />
-          </span>
+          {/* Bio Description */}
+          <p className="max-w-2xl text-slate-400 text-base sm:text-lg mb-8 leading-relaxed mx-auto lg:mx-0">
+            {personalInfo.bio}
+          </p>
+
+          {/* Hero CTA Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+            <a
+              href="#projects"
+              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 text-slate-950 font-bold text-sm hover:scale-105 transition-all duration-300 glow-cyan flex items-center gap-2.5"
+            >
+              <span>Explore My Work</span>
+              <i className="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+            <a
+              href="#contact"
+              className="px-7 py-3.5 rounded-xl glass-card text-slate-200 font-semibold text-sm hover:border-cyan-400 hover:text-cyan-400 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
+              <i className="fa-regular fa-envelope"></i>
+              <span>Contact Me</span>
+            </a>
+            <Link
+              to="/certifications"
+              className="px-6 py-3.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-purple-300 font-semibold text-sm hover:border-purple-400 hover:text-purple-200 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
+              <i className="fa-solid fa-award"></i>
+              <span>Credentials &amp; Certs</span>
+            </Link>
+          </div>
+
+          {/* Social Links & Instant Copy Email */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 text-slate-400">
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-lg"
+              title="GitHub Profile"
+            >
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-lg"
+              title="LinkedIn Profile"
+            >
+              <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+            <button
+              onClick={copyEmail}
+              className="px-4 py-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-xs font-mono flex items-center gap-2"
+              title="Click to copy email address"
+            >
+              <i className="fa-regular fa-envelope text-sm"></i>
+              <span>{copied ? 'Copied to Clipboard!' : personalInfo.email}</span>
+              {copied && <i className="fa-solid fa-check text-emerald-400 text-xs"></i>}
+            </button>
+            <span
+              className="p-3 rounded-xl glass-card text-slate-400 text-xs font-mono flex items-center gap-1.5"
+              title="Location"
+            >
+              <i className="fa-solid fa-location-dot text-cyan-400 text-xs"></i>
+              <span>{personalInfo.location}</span>
+            </span>
+          </div>
         </div>
-      </h1>
 
-      {/* Bio Description */}
-      <p className="max-w-3xl text-slate-400 text-base sm:text-lg mb-10 leading-relaxed">
-        {personalInfo.bio}
-      </p>
+        {/* Right Column: Holographic Developer Showcase Card (5 cols) */}
+        <div className="lg:col-span-5 flex items-center justify-center relative mt-6 lg:mt-0">
+          <div className="relative w-full max-w-sm sm:max-w-md">
+            {/* Ambient Neon Backlights */}
+            <div className="absolute -top-10 -left-10 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-500/25 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* Hero CTA Action Buttons */}
-      <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12">
-        <a
-          href="#projects"
-          className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 text-slate-950 font-bold text-base hover:scale-105 transition-all duration-300 glow-cyan flex items-center gap-3"
-        >
-          <span>Explore My Work</span>
-          <i className="fa-solid fa-arrow-right"></i>
-        </a>
-        <a
-          href="#contact"
-          className="px-8 py-3.5 rounded-xl glass-card text-slate-200 font-semibold text-base hover:border-cyan-400 hover:text-cyan-400 hover:scale-105 transition-all duration-300 flex items-center gap-2"
-        >
-          <i className="fa-regular fa-envelope"></i>
-          <span>Contact Me</span>
-        </a>
-        <Link
-          to="/certifications"
-          className="px-8 py-3.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-purple-300 font-semibold text-base hover:border-purple-400 hover:text-purple-200 hover:scale-105 transition-all duration-300 flex items-center gap-2"
-        >
-          <i className="fa-solid fa-award"></i>
-          <span>Credentials &amp; Certs</span>
-        </Link>
-      </div>
+            {/* The Main Card Frame */}
+            <div className="relative rounded-[32px] p-2.5 sm:p-3 bg-gradient-to-b from-cyan-500/35 via-slate-800/70 to-purple-500/35 shadow-[0_0_50px_rgba(0,242,254,0.18)] group transition-all duration-500 hover:shadow-[0_0_65px_rgba(0,242,254,0.35)]">
+              <div className="relative rounded-[26px] overflow-hidden bg-slate-950/90 border border-slate-700/60">
+                {/* The Photo */}
+                <img
+                  src={avatarImg}
+                  alt={personalInfo.name}
+                  className="w-full h-[370px] sm:h-[450px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
 
-      {/* Social Links & Instant Copy Email */}
-      <div className="flex flex-wrap items-center justify-center gap-4 text-slate-400">
-        <a
-          href={personalInfo.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-xl"
-          title="GitHub Profile"
-        >
-          <i className="fa-brands fa-github"></i>
-        </a>
-        <a
-          href={personalInfo.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-xl"
-          title="LinkedIn Profile"
-        >
-          <i className="fa-brands fa-linkedin-in"></i>
-        </a>
-        <button
-          onClick={copyEmail}
-          className="relative px-4 py-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-sm font-mono flex items-center gap-2"
-          title="Click to copy email address"
-        >
-          <i className="fa-regular fa-envelope text-base"></i>
-          <span>{copied ? 'Copied to Clipboard!' : personalInfo.email}</span>
-          {copied && <i className="fa-solid fa-check text-emerald-400 text-xs"></i>}
-        </button>
-        <span
-          className="p-3 rounded-xl glass-card text-slate-400 text-sm font-mono flex items-center gap-2"
-          title="Location"
-        >
-          <i className="fa-solid fa-location-dot text-cyan-400"></i>
-          <span>{personalInfo.location}</span>
-        </span>
+                {/* Bottom Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent pointer-events-none"></div>
+
+                {/* Bottom Glass Nameplate */}
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl glass-panel border border-slate-700/80 backdrop-blur-md">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-sm font-bold text-slate-100 flex items-center gap-1.5">
+                        <span>{personalInfo.name}</span>
+                        <i className="fa-solid fa-circle-check text-cyan-400 text-xs"></i>
+                      </h3>
+                      <p className="text-[11px] font-mono text-cyan-300">B.E. Computer Engineering</p>
+                    </div>
+                    <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span>Available</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Chip 1: Top-Left (Full-Stack MERN) */}
+            <div className="absolute -top-4 -left-3 sm:-left-6 px-3.5 py-2 rounded-2xl glass-card border border-cyan-500/40 text-cyan-300 shadow-2xl flex items-center gap-2 animate-float pointer-events-none">
+              <div className="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-sm text-cyan-400">
+                <i className="fa-brands fa-react"></i>
+              </div>
+              <div className="text-left">
+                <p className="text-[9px] font-mono text-slate-400 leading-tight">Expertise</p>
+                <p className="text-xs font-bold text-slate-100 leading-tight">MERN Stack</p>
+              </div>
+            </div>
+
+            {/* Floating Chip 2: Top-Right (8.94 CGPA) */}
+            <div className="absolute -top-3 -right-3 sm:-right-5 px-3.5 py-2 rounded-2xl glass-card border border-purple-500/40 text-purple-300 shadow-2xl flex items-center gap-2 animate-float-delayed pointer-events-none">
+              <div className="w-7 h-7 rounded-lg bg-purple-500/20 flex items-center justify-center text-sm text-purple-400">
+                <i className="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div className="text-left">
+                <p className="text-[9px] font-mono text-slate-400 leading-tight">Academic Honor</p>
+                <p className="text-xs font-bold text-purple-200 leading-tight">8.94 CGPA</p>
+              </div>
+            </div>
+
+            {/* Floating Chip 3: Bottom-Left (AI & Data) */}
+            <div className="absolute -bottom-4 -left-3 sm:-left-6 px-3.5 py-2 rounded-2xl glass-card border border-emerald-500/40 text-emerald-300 shadow-2xl flex items-center gap-2 animate-float-delayed pointer-events-none">
+              <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-sm text-emerald-400">
+                <i className="fa-solid fa-brain"></i>
+              </div>
+              <div className="text-left">
+                <p className="text-[9px] font-mono text-slate-400 leading-tight">Data &amp; AI</p>
+                <p className="text-xs font-bold text-emerald-200 leading-tight">Python &amp; ML</p>
+              </div>
+            </div>
+
+            {/* Floating Chip 4: Bottom-Right (IJARSCT Research Paper) */}
+            <div className="absolute -bottom-3 -right-3 sm:-right-5 px-3.5 py-2 rounded-2xl glass-card border border-sky-500/40 text-sky-300 shadow-2xl flex items-center gap-2 animate-float pointer-events-none">
+              <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sm text-sky-400">
+                <i className="fa-solid fa-book-bookmark"></i>
+              </div>
+              <div className="text-left">
+                <p className="text-[9px] font-mono text-slate-400 leading-tight">Research</p>
+                <p className="text-xs font-bold text-sky-200 leading-tight">IJARSCT Paper</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

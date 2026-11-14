@@ -8,8 +8,6 @@ export const personalInfo = {
   name: "Gaurav Kamble",
   badge: "Available for Multi-Domain Engineering, Data & IT Roles",
   email: "kamblegaurav193@gmail.com",
-  phone: "+91 8600619076",
-  whatsapp: "918600619076",
   location: "Pune, Maharashtra, India",
   degree: "B.E. Computer Engineering",
   github: "https://github.com/gauravkamble12",
@@ -90,7 +88,6 @@ export const terminalCommands = {
     ],
     publication: "IJARSCT Research Journal",
     email: "kamblegaurav193@gmail.com",
-    phone: "+91 8600619076",
     location: "Pune, Maharashtra",
     openToWork: true
   },

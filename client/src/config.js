@@ -1,7 +1,5 @@
 export const CONTACT = {
   email: 'kamblegaurav193@gmail.com',
-  phone: '+91 8600619076',
-  rawPhone: '8600619076',
 
   // International format, digits only. India country code is 91.
   whatsapp: '918600619076',

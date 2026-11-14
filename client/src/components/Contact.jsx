@@ -89,21 +89,6 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href={`tel:${CONTACT.phone.replace(/\s+/g, '')}`}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 group-hover:border-sky-400/50 transition-colors">
-                    <i className="fa-solid fa-phone text-lg"></i>
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-400 font-mono">CALL / MOBILE</div>
-                    <div className="text-sm font-semibold text-slate-200 group-hover:text-sky-400 transition-colors">
-                      {CONTACT.phone}
-                    </div>
-                  </div>
-                </a>
-
-                <a
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -115,7 +100,7 @@ export default function Contact() {
                   <div>
                     <div className="text-xs text-slate-400 font-mono">WHATSAPP</div>
                     <div className="text-sm font-semibold text-slate-200 group-hover:text-emerald-400 transition-colors">
-                      +91 8600619076 (Chat directly)
+                      Chat with me directly
                     </div>
                   </div>
                 </a>

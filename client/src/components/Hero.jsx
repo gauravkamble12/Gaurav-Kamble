@@ -96,6 +96,14 @@ export default function Hero() {
               <span>{copied ? 'Copied to Clipboard!' : personalInfo.email}</span>
               {copied && <i className="fa-solid fa-check text-emerald-400 text-xs"></i>}
             </button>
+            <a
+              href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+              className="px-4 py-3 rounded-xl glass-card hover:text-cyan-400 hover:border-cyan-400/50 transition-all text-xs font-mono flex items-center gap-2"
+              title="Call Mobile"
+            >
+              <i className="fa-solid fa-phone text-xs text-cyan-400"></i>
+              <span>{personalInfo.phone}</span>
+            </a>
             <span
               className="p-3 rounded-xl glass-card text-slate-400 text-xs font-mono flex items-center gap-1.5"
               title="Location"

@@ -22,7 +22,6 @@ export default function Projects() {
             Engineered systems spanning real-time full-stack web applications, exploratory data analysis, and predictive machine learning models.
           </p>
 
-          {/* Domain Filter Pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
             {projectCategories.map((cat) => {
               const count = cat.id === 'all'
@@ -56,13 +55,11 @@ export default function Projects() {
         </div>
       </Reveal>
 
-      {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredProjects.map((project, index) => (
           <Reveal key={project.id} delay={index * 80} className="h-full">
             <div className="glass-card rounded-3xl overflow-hidden h-full flex flex-col justify-between group border-slate-800 hover:border-cyan-500/40 transition-all p-8">
               <div>
-                {/* Header: Tag + Domain */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
                     {project.tag}
@@ -80,7 +77,6 @@ export default function Projects() {
                   {project.desc}
                 </p>
 
-                {/* Tech Badges */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((t, idx) => (
                     <span key={idx} className="text-xs font-mono bg-slate-900 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">
@@ -90,7 +86,6 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-slate-800/80">
                 <button
                   type="button"
@@ -126,7 +121,6 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Project Details Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn">
           <div className="glass-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 border-cyan-500/30 relative">

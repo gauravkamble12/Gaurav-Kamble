@@ -1,9 +1,3 @@
-/**
- * Portfolio Data Configuration
- * Centralized, easy-to-edit data for Gaurav Kamble's Portfolio.
- * Edit this file to update projects, skills, experience, or bio.
- */
-
 export const personalInfo = {
   name: "Gaurav Kamble",
   badge: "Available for Multi-Domain Engineering, Data & IT Roles",

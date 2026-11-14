@@ -14,9 +14,6 @@ const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,h
   .map((o) => o.trim())
   .filter(Boolean);
 
-// ---------------------------------------------------------------------------
-// Middleware
-// ---------------------------------------------------------------------------
 app.use(
   cors({
     origin(origin, callback) {
@@ -30,25 +27,17 @@ app.use(
 
 app.use(express.json({ limit: '16kb' }));
 
-// ---------------------------------------------------------------------------
-// Routes
-// ---------------------------------------------------------------------------
 app.use('/api', contactRoutes);
 
-// Root route
 app.get('/', (req, res) => {
   res.json({ message: 'Gaurav Kamble Portfolio MERN API is running' });
 });
 
-// Global Error Handler
 app.use((err, req, res, next) => {
   console.error('[server error]', err.message);
   res.status(500).json({ error: err.message || 'Internal server error' });
 });
 
-// ---------------------------------------------------------------------------
-// Database Connection & Server Startup
-// ---------------------------------------------------------------------------
 async function startServer() {
   if (MONGODB_URI) {
     try {

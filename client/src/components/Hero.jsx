@@ -19,15 +19,12 @@ export default function Hero() {
       className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex items-center min-h-[92vh]"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-        {/* Left Column: Introduction & CTAs (7 cols) */}
         <div className="lg:col-span-7 text-center lg:text-left">
-          {/* Status Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-cyan-500/30 text-cyan-300 text-xs font-mono mb-6 animate-pulse">
             <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
             {personalInfo.badge}
           </div>
 
-          {/* Main Title & Animated Typing */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
             Hi, I'm <span className="text-gradient">{personalInfo.name}</span>
             <div className="h-14 mt-2 text-xl sm:text-3xl lg:text-4xl font-mono font-semibold text-slate-300">
@@ -37,12 +34,10 @@ export default function Hero() {
             </div>
           </h1>
 
-          {/* Bio Description */}
           <p className="max-w-2xl text-slate-400 text-base sm:text-lg mb-8 leading-relaxed mx-auto lg:mx-0">
             {personalInfo.bio}
           </p>
 
-          {/* Hero CTA Action Buttons */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
             <a
               href="#projects"
@@ -67,7 +62,6 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Social Links & Instant Copy Email */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 text-slate-400">
             <a
               href={personalInfo.github}
@@ -106,27 +100,21 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Holographic Developer Showcase Card (5 cols) */}
         <div className="lg:col-span-5 flex items-center justify-center relative mt-6 lg:mt-0">
           <div className="relative w-full max-w-sm sm:max-w-md">
-            {/* Ambient Neon Backlights */}
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-500/25 rounded-full blur-3xl pointer-events-none"></div>
 
-            {/* The Main Card Frame */}
             <div className="relative rounded-[32px] p-2.5 sm:p-3 bg-gradient-to-b from-cyan-500/35 via-slate-800/70 to-purple-500/35 shadow-[0_0_50px_rgba(0,242,254,0.18)] group transition-all duration-500 hover:shadow-[0_0_65px_rgba(0,242,254,0.35)]">
               <div className="relative rounded-[26px] overflow-hidden bg-slate-950/90 border border-slate-700/60">
-                {/* The Photo */}
                 <img
                   src={avatarImg}
                   alt={personalInfo.name}
                   className="w-full h-[370px] sm:h-[450px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
 
-                {/* Bottom Dark Vignette Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent pointer-events-none"></div>
 
-                {/* Bottom Glass Nameplate */}
                 <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl glass-panel border border-slate-700/80 backdrop-blur-md">
                   <div className="flex items-center justify-between">
                     <div>
@@ -145,7 +133,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Chip 1: Top-Left (Full-Stack MERN) */}
             <div className="absolute -top-4 -left-3 sm:-left-6 px-3.5 py-2 rounded-2xl glass-card border border-cyan-500/40 text-cyan-300 shadow-2xl flex items-center gap-2 animate-float pointer-events-none">
               <div className="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center text-sm text-cyan-400">
                 <i className="fa-brands fa-react"></i>
@@ -156,7 +143,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Chip 2: Top-Right (8.94 CGPA) */}
             <div className="absolute -top-3 -right-3 sm:-right-5 px-3.5 py-2 rounded-2xl glass-card border border-purple-500/40 text-purple-300 shadow-2xl flex items-center gap-2 animate-float-delayed pointer-events-none">
               <div className="w-7 h-7 rounded-lg bg-purple-500/20 flex items-center justify-center text-sm text-purple-400">
                 <i className="fa-solid fa-graduation-cap"></i>
@@ -167,7 +153,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Chip 3: Bottom-Left (AI & Data) */}
             <div className="absolute -bottom-4 -left-3 sm:-left-6 px-3.5 py-2 rounded-2xl glass-card border border-emerald-500/40 text-emerald-300 shadow-2xl flex items-center gap-2 animate-float-delayed pointer-events-none">
               <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-sm text-emerald-400">
                 <i className="fa-solid fa-brain"></i>
@@ -178,7 +163,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Chip 4: Bottom-Right (IJARSCT Research Paper) */}
             <div className="absolute -bottom-3 -right-3 sm:-right-5 px-3.5 py-2 rounded-2xl glass-card border border-sky-500/40 text-sky-300 shadow-2xl flex items-center gap-2 animate-float pointer-events-none">
               <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sm text-sky-400">
                 <i className="fa-solid fa-book-bookmark"></i>

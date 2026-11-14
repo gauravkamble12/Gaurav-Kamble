@@ -41,7 +41,6 @@ export default function Education() {
         </div>
       </Reveal>
 
-      {/* Education Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {education.map((item, index) => {
           const style = colorStyles[item.color] || colorStyles.cyan;
@@ -52,7 +51,6 @@ export default function Education() {
                 className={`glass-card rounded-3xl p-8 h-full flex flex-col justify-between border ${style.border} ${style.glow} transition-all duration-300 group`}
               >
                 <div>
-                  {/* Top Row: Icon + Period */}
                   <div className="flex items-center justify-between mb-6">
                     <div className={`w-12 h-12 rounded-2xl ${style.iconBg} border flex items-center justify-center text-xl`}>
                       <i className={item.icon}></i>
@@ -62,7 +60,6 @@ export default function Education() {
                     </span>
                   </div>
 
-                  {/* Degree & Institution */}
                   <span className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${style.badge}`}>
                     {item.badge}
                   </span>
@@ -79,7 +76,6 @@ export default function Education() {
                   </p>
                 </div>
 
-                {/* Score Banner at Bottom */}
                 <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between mt-auto">
                   <span className="text-xs font-mono text-slate-400">{item.scoreType}</span>
                   <span className={`text-xl font-mono font-extrabold ${style.scoreText}`}>

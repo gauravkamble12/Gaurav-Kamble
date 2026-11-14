@@ -62,13 +62,11 @@ export default function ParticleBackground() {
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        // Draw particle node
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0, 242, 254, ${p.alpha})`;
         ctx.fill();
 
-        // Connect particles with each other
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
@@ -85,7 +83,6 @@ export default function ParticleBackground() {
           }
         }
 
-        // Connect particle to mouse cursor
         if (mouse.x !== null && mouse.y !== null) {
           const mdx = p.x - mouse.x;
           const mdy = p.y - mouse.y;

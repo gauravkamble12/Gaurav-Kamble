@@ -71,7 +71,6 @@ export default function TechSphere() {
     return () => window.removeEventListener('resize', updateRadius);
   }, []);
 
-  // Animation loop
   useEffect(() => {
     let animId;
 
@@ -79,7 +78,6 @@ export default function TechSphere() {
       const state = stateRef.current;
       const radius = state.radius;
 
-      // Auto-rotation when not dragging
       if (!state.isDragging && !isPaused) {
         state.angleX = state.mouseY * 0.00008 + 0.002;
         state.angleY = state.mouseX * 0.00008 + 0.003;
@@ -94,20 +92,16 @@ export default function TechSphere() {
         const cosY = Math.cos(state.angleY);
 
         return prevItems.map((item) => {
-          // Rotate around X axis
           const y1 = item.baseY * cosX - item.baseZ * sinX;
           const z1 = item.baseZ * cosX + item.baseY * sinX;
 
-          // Rotate around Y axis
           const x2 = item.baseX * cosY - z1 * sinY;
           const z2 = z1 * cosY + item.baseX * sinY;
 
-          // Update base coords for next frame
           item.baseX = x2;
           item.baseY = y1;
           item.baseZ = z2;
 
-          // Project to 3D sphere with perspective
           const scale = Math.max(0.4, (z2 + 1.6) / 2.6);
           const alpha = Math.max(0.25, (z2 + 1) / 2);
 
@@ -130,7 +124,6 @@ export default function TechSphere() {
     return () => cancelAnimationFrame(animId);
   }, [isPaused]);
 
-  // Mouse & Touch interactions
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -162,11 +155,9 @@ export default function TechSphere() {
 
   return (
     <div className="relative w-full py-8 flex flex-col items-center justify-center overflow-hidden">
-      {/* Ambient Radial Glow */}
       <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none"></div>
       <div className="absolute w-60 h-60 rounded-full bg-purple-500/10 blur-3xl pointer-events-none"></div>
 
-      {/* 3D Sphere Interactive Stage */}
       <div
         ref={containerRef}
         onMouseMove={handleMouseMove}

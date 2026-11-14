@@ -190,7 +190,6 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                {/* Honeypot: hidden from users, catches naive bots */}
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="contact-website">Website</label>
                   <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />

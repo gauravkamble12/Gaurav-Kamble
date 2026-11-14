@@ -60,24 +60,15 @@ function escapeHtml(val) {
     .replace(/'/g, '&#39;');
 }
 
-/**
- * GET /api/health
- * Returns service status & MongoDB / SMTP configuration status
- */
 router.get('/health', (req, res) => {
   const smtpConfigured = Boolean(process.env.SMTP_USER && process.env.SMTP_PASS);
   const dbConnected = Boolean(process.env.MONGODB_URI);
   res.json({ ok: true, smtpConfigured, dbConnected });
 });
 
-/**
- * POST /api/contact
- * Handles contact form submissions, saves to MongoDB, and delivers via email
- */
 router.post('/contact', rateLimit, async (req, res) => {
   const { name, email, subject, message, website } = req.body || {};
 
-  // Honeypot field for bot protection
   if (website) {
     return res.status(200).json({ ok: true });
   }
@@ -92,7 +83,6 @@ router.post('/contact', rateLimit, async (req, res) => {
   }
 
   try {
-    // 1. Save message to MongoDB if database is connected
     try {
       await Message.create({
         name: name.trim(),
@@ -106,7 +96,6 @@ router.post('/contact', rateLimit, async (req, res) => {
       console.warn('[contact] MongoDB save skipped or error:', dbErr.message);
     }
 
-    // 2. Deliver via email if SMTP is configured
     const transport = getTransport();
     if (transport) {
       const safeName = escapeHtml(name);

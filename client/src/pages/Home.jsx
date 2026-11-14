@@ -13,13 +13,9 @@ import Footer from '../components/Footer';
 export default function Home() {
   return (
     <div className="portfolio-app relative min-h-screen bg-[#060913] text-slate-100 overflow-x-hidden">
-      {/* Live Interactive Constellation Particle Canvas */}
       <ParticleBackground />
-
-      {/* Fixed Glass Navigation */}
       <Navbar />
 
-      {/* Main Content Sections */}
       <main>
         <Hero />
         <About />
@@ -30,7 +26,6 @@ export default function Home() {
         <Contact />
       </main>
 
-      {/* Clean Footer */}
       <Footer />
     </div>
   );

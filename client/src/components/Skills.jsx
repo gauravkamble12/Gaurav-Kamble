@@ -48,12 +48,10 @@ export default function Skills() {
         </div>
       </Reveal>
 
-      {/* 3D Interactive Rotating Tech Sphere */}
       <Reveal delay={80}>
         <TechSphere />
       </Reveal>
 
-      {/* Categorized Skills Heading & Filter Tabs */}
       <div className="mt-12 mb-8">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
           <h3 className="text-lg font-bold text-slate-200 flex items-center gap-2">
@@ -79,7 +77,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* Categorized Domain Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredGroups.map((group, index) => {
           const a = colorMap[group.color] || colorMap.cyan;

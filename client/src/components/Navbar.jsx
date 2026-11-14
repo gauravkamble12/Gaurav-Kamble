@@ -7,7 +7,6 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 glass-panel border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
           <span className="font-mono text-2xl font-bold tracking-wider text-gradient">&lt;GK /&gt;</span>
           <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:border-cyan-400 transition-colors">
@@ -15,7 +14,6 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
           <a href="#about" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">About</a>
           <a href="#education" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">Education</a>
@@ -26,7 +24,6 @@ export default function Navbar() {
           <a href="#contact" className="text-slate-300 hover:text-cyan-400 transition-colors py-1">Contact</a>
         </nav>
 
-        {/* Action Button */}
         <div className="hidden md:flex items-center gap-4">
           <a
             href="#contact"
@@ -37,7 +34,6 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-slate-300 hover:text-cyan-400 p-2 text-xl focus:outline-none"
@@ -47,7 +43,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden glass-panel border-b border-slate-800 px-6 py-4 flex flex-col gap-4 text-center animate-fadeIn">
           <a href="#about" onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400 py-2">About</a>

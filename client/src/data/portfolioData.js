@@ -149,21 +149,21 @@ export const projects = [
   },
   {
     id: "messenger",
-    title: "Real-Time Web Messenger",
+    title: "Sangati — Real-Time Web Messenger",
     domain: "MERN Stack / Web Dev",
     category: "mern",
-    tag: "Real-Time App",
-    desc: "Full-stack instant messaging platform built with MERN & Socket.IO. Features web sockets, instant message delivery status, active user presence tracking, and MongoDB message persistence.",
+    tag: "Live Production App",
+    desc: "Private real-time messaging application built with React, Node.js, Express, and Socket.IO. Features instant bi-directional messaging, active presence indicators, typing status, and responsive mobile-first UI.",
     features: [
-      "Real-time bi-directional messaging powered by Socket.IO events",
-      "User authentication and MongoDB chat room schema persistence",
-      "Active presence indicators and delivery notifications",
-      "Clean, responsive glassmorphic chat interface"
+      "Real-time bi-directional messaging powered by Socket.IO WebSocket events",
+      "User authentication, active presence tracking, and conversation persistence",
+      "Mobile-optimized responsive design with viewport handling and dynamic theme accents",
+      "Instant message delivery status and clean, fluid chat interface"
     ],
-    tech: ["Socket.IO", "React", "Express", "Node.js", "MongoDB"],
-    hasLive: false,
+    tech: ["React.js", "Socket.IO", "Node.js", "Express", "MongoDB", "Render"],
+    hasLive: true,
     githubLink: "https://github.com/gauravkamble12",
-    liveLink: "#"
+    liveLink: "https://gkwhatsapp-s2y6.onrender.com/"
   },
   {
     id: "heart-disease",

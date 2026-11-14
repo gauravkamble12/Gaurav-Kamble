@@ -129,6 +129,25 @@ export const projectCategories = [
 
 export const projects = [
   {
+    id: "blog",
+    title: "GK Blog — Full-Stack Community Platform",
+    domain: "MERN Stack / Web Dev",
+    category: "mern",
+    tag: "Live Production App",
+    desc: "Interactive full-stack blogging platform where creators publish articles, explore community stories, and engage through live reactions. Features real-time Socket.IO notifications, Cloudinary CDN media, and responsive dark/light modes.",
+    features: [
+      "User authentication, story publishing suite, and categorized topic feeds",
+      "Interactive reader reactions with real-time like counters and engagement tracking",
+      "Live activity updates and notifications powered by Socket.IO events",
+      "Direct Cloudinary API integration for secure image uploads and optimized CDN delivery",
+      "Fast server-side pagination, search filtering, and seamless dark/light theme switching"
+    ],
+    tech: ["Node.js", "Express", "MongoDB", "Socket.IO", "Cloudinary", "Render"],
+    hasLive: true,
+    githubLink: "https://github.com/gauravkamble12",
+    liveLink: "https://blogwebsite1-q22u.onrender.com/"
+  },
+  {
     id: "messenger",
     title: "Real-Time Web Messenger",
     domain: "MERN Stack / Web Dev",
@@ -142,25 +161,7 @@ export const projects = [
       "Clean, responsive glassmorphic chat interface"
     ],
     tech: ["Socket.IO", "React", "Express", "Node.js", "MongoDB"],
-    hasLive: true,
-    githubLink: "https://github.com/gauravkamble12",
-    liveLink: "#"
-  },
-  {
-    id: "blog",
-    title: "Full-Stack Media Blogging Platform",
-    domain: "MERN Stack / Web Dev",
-    category: "mern",
-    tag: "MERN Stack",
-    desc: "Rich publishing suite with JWT authentication, custom text editing, dynamic image hosting via Cloudinary CDN, and optimized MongoDB pagination queries.",
-    features: [
-      "JWT-based user authorization and session management",
-      "Direct Cloudinary API integration for secure image hosting & CDN delivery",
-      "Optimized MongoDB aggregations and indexing for fast pagination",
-      "Rich text editor with real-time markdown previews"
-    ],
-    tech: ["React.js", "Node.js", "Express", "MongoDB", "Cloudinary", "JWT"],
-    hasLive: true,
+    hasLive: false,
     githubLink: "https://github.com/gauravkamble12",
     liveLink: "#"
   },

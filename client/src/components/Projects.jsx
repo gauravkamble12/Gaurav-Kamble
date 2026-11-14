@@ -166,12 +166,23 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
+              {selectedProject.hasLive && (
+                <a
+                  href={selectedProject.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold text-center text-xs hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                >
+                  <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  <span>Launch Live App</span>
+                </a>
+              )}
               <a
                 href={selectedProject.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-center text-xs hover:brightness-110 transition-all glow-cyan flex items-center justify-center gap-2"
+                className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-center text-xs hover:brightness-110 transition-all glow-cyan flex items-center justify-center gap-2"
               >
                 <i className="fa-brands fa-github text-sm"></i>
                 <span>Explore GitHub Repository</span>

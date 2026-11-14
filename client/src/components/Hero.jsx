@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import TypedText from './TypedText';
 import { personalInfo } from '../data/portfolioData';
+import avatarImg from '../assets/avatar.jpg';
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
@@ -15,8 +16,22 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-10 pt-32 pb-20 md:pt-44 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen text-center"
+      className="relative z-10 pt-32 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen text-center"
     >
+      {/* Avatar with Glowing Gradient Ring */}
+      <div className="relative mb-6 group">
+        <div className="absolute -inset-1.5 bg-gradient-to-r from-cyan-400 via-sky-500 to-purple-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+        <img
+          src={avatarImg}
+          alt={personalInfo.name}
+          className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-2 border-cyan-400/80 shadow-2xl transition-transform duration-300 group-hover:scale-105"
+        />
+        <div
+          className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-400 border-2 border-slate-950 shadow-md animate-pulse"
+          title="Online & Ready for Opportunities"
+        ></div>
+      </div>
+
       {/* Status Badge */}
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-cyan-500/30 text-cyan-300 text-xs font-mono mb-8 animate-pulse">
         <span className="w-2 h-2 rounded-full bg-cyan-400"></span>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Reveal from './Reveal';
+import TechSphere from './TechSphere';
 import { skillGroups } from '../data/portfolioData';
 
 const colorMap = {
@@ -35,18 +36,32 @@ export default function Skills() {
   return (
     <section id="skills" className="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <Reveal>
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-3">
             <i className="fa-solid fa-microchip"></i> Expertise
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Technical Skillset</h2>
           <p className="text-slate-400 mt-4 text-base">
-            Multi-disciplinary technical toolkit across Software Engineering, Data Analysis, Machine Learning, Cybersecurity &amp; IT Systems
-            <span className="font-mono text-cyan-400/80 text-sm"> &mdash; {totalSkills}+ technologies across {skillGroups.length} domains</span>
+            Interactive 3D visualization of languages, frameworks, and system tools across full-stack development, AI/ML, and cloud.
+            <span className="font-mono text-cyan-400/80 text-sm"> &mdash; {totalSkills}+ technologies</span>
           </p>
+        </div>
+      </Reveal>
 
-          {/* Quick Domain Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-6">
+      {/* 3D Interactive Rotating Tech Sphere */}
+      <Reveal delay={80}>
+        <TechSphere />
+      </Reveal>
+
+      {/* Categorized Skills Heading & Filter Tabs */}
+      <div className="mt-12 mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <h3 className="text-lg font-bold text-slate-200 flex items-center gap-2">
+            <i className="fa-solid fa-layer-group text-cyan-400 text-sm"></i>
+            <span>Domain Categorization</span>
+          </h3>
+
+          <div className="flex flex-wrap items-center gap-2">
             {filterOptions.map((opt) => (
               <button
                 key={opt.id}
@@ -62,14 +77,15 @@ export default function Skills() {
             ))}
           </div>
         </div>
-      </Reveal>
+      </div>
 
+      {/* Categorized Domain Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredGroups.map((group, index) => {
           const a = colorMap[group.color] || colorMap.cyan;
 
           return (
-            <Reveal key={group.id} delay={index * 60} className="h-full">
+            <Reveal key={group.id} delay={index * 50} className="h-full">
               <div
                 className={`glass-panel-card rounded-2xl p-5 sm:p-6 h-full flex flex-col ${a.border} ${
                   group.featured ? 'ring-1 ring-cyan-500/20 bg-slate-900/70' : ''

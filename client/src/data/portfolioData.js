@@ -110,6 +110,7 @@ export const terminalCommands = {
     "Backend: Node.js, Express.js, RESTful APIs, JWT Auth, Socket.IO",
     "Database: MongoDB, Mongoose, MySQL, PostgreSQL",
     "Data & ML: Python, SQL, Pandas, Power BI, Scikit-Learn, Jupyter",
+    "AI & GenAI: Groq API, Structured Outputs, Prompt Engineering, LLMs",
     "Systems & Security: Linux CLI, Bash/PowerShell, Wireshark, OS Diagnostics"
   ],
   "milestones.txt": [
@@ -124,10 +125,33 @@ export const terminalCommands = {
 export const projectCategories = [
   { id: "all", label: "All Projects", icon: "fa-solid fa-layer-group" },
   { id: "mern", label: "MERN Stack", icon: "fa-brands fa-react" },
+  { id: "ai", label: "AI & GenAI", icon: "fa-solid fa-brain" },
   { id: "data-ml", label: "Data & ML", icon: "fa-solid fa-chart-line" }
 ];
 
 export const projects = [
+  {
+    id: "resume-ai",
+    title: "AI Resume & Interview Prep Platform",
+    domain: "Full-Stack AI / MERN",
+    category: ["mern", "ai"],
+    tag: "Featured Full-Stack AI App",
+    image: "/projects/resume-creator.png",
+    desc: "AI-driven career preparation platform that analyzes resumes against target job descriptions. Generates an ATS match score, skill-gap analysis, tailored behavioral & technical interview questions, a structured day-wise preparation plan, and an ATS-optimized tailored resume PDF using Groq structured outputs.",
+    features: [
+      "Upload resume (PDF/DOCX) or provide a self-description alongside target job requirements for holistic evaluation",
+      "Calculates real-time ATS match score with comprehensive skill-gap analysis highlighting missing competencies",
+      "Generates role-specific behavioral, technical, and scenario-based interview questions tailored to the candidate's profile",
+      "Structures a customized, day-wise interview preparation roadmap with actionable milestones and study topics",
+      "Synthesizes and exports an ATS-optimized tailored resume PDF directly aligned with target role keywords",
+      "Powered by Groq high-speed LLM inference with structured JSON output enforcement for deterministic responses",
+      "Full-stack MERN architecture built with React.js, Express.js REST API, MongoDB persistence, and Tailwind CSS"
+    ],
+    tech: ["React.js", "Express.js", "MongoDB", "Groq AI", "Node.js", "Tailwind CSS", "PDF Generation", "Structured Outputs"],
+    hasLive: false,
+    githubLink: "https://github.com/gauravkamble12",
+    liveLink: "#"
+  },
   {
     id: "blog",
     title: "GK Blog — Full-Stack Community Platform",
@@ -187,7 +211,7 @@ export const projects = [
     id: "movie-rec",
     title: "Movie Recommendation System",
     domain: "Data Analytics & ML",
-    category: "data-ml",
+    category: ["data-ml", "ai"],
     tag: "NLP & Recommender",
     desc: "Machine learning recommendation engine using cosine similarity and NLP feature extraction to analyze movie genres, cast, and plots to provide personalized recommendations.",
     features: [
@@ -224,7 +248,7 @@ export const skillGroups = [
     label: "Machine Learning & AI",
     icon: "fa-solid fa-brain",
     color: "fuchsia",
-    skills: ["Scikit-Learn", "Generative AI", "NLP", "Prompt Engineering", "Model Evaluation"]
+    skills: ["Scikit-Learn", "Generative AI", "Groq & LLMs", "NLP", "Prompt Engineering", "Model Evaluation"]
   },
   {
     id: "frontend",

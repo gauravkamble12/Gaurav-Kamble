@@ -6,9 +6,15 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const filteredProjects = activeCategory === 'all'
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
+  const matchesCategory = (project, catId) => {
+    if (catId === 'all') return true;
+    if (Array.isArray(project.category)) {
+      return project.category.includes(catId);
+    }
+    return project.category === catId;
+  };
+
+  const filteredProjects = projects.filter((p) => matchesCategory(p, activeCategory));
 
   return (
     <section id="projects" className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -24,9 +30,7 @@ export default function Projects() {
 
           <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
             {projectCategories.map((cat) => {
-              const count = cat.id === 'all'
-                ? projects.length
-                : projects.filter((p) => p.category === cat.id).length;
+              const count = projects.filter((p) => matchesCategory(p, cat.id)).length;
               const isActive = activeCategory === cat.id;
 
               return (
@@ -60,6 +64,22 @@ export default function Projects() {
           <Reveal key={project.id} delay={index * 80} className="h-full">
             <div className="glass-card rounded-3xl overflow-hidden h-full flex flex-col justify-between group border-slate-800 hover:border-cyan-500/40 transition-all p-8">
               <div>
+                {project.image && (
+                  <div className="relative -mx-8 -mt-8 mb-6 h-48 sm:h-56 overflow-hidden bg-slate-950 border-b border-slate-800 group-hover:border-cyan-500/30 transition-all">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0c1222] via-[#0c1222]/30 to-transparent"></div>
+                    <div className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full border border-cyan-500/40 text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 shadow-lg">
+                      <i className="fa-solid fa-sparkles text-cyan-400 text-xs"></i>
+                      <span>AI Powered</span>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="text-xs font-mono px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
                     {project.tag}
@@ -139,6 +159,21 @@ export default function Projects() {
             <h3 className="text-2xl font-bold text-slate-100 mt-4 mb-3">
               {selectedProject.title}
             </h3>
+
+            {selectedProject.image && (
+              <div className="relative rounded-2xl overflow-hidden border border-slate-800/80 mb-5 bg-slate-950 shadow-xl">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-auto max-h-80 object-cover object-top rounded-2xl"
+                />
+                <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-sm text-[10px] font-mono text-cyan-300 border border-slate-800 flex items-center gap-1.5">
+                  <i className="fa-solid fa-image text-[10px]"></i>
+                  <span>Application UI Preview</span>
+                </div>
+              </div>
+            )}
+
             <p className="text-slate-300 text-sm leading-relaxed mb-6">
               {selectedProject.desc}
             </p>
